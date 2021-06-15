@@ -29,7 +29,7 @@ BOOL EnablePriv(LPCSTR lpszPriv)
     return bRet;
 }
  
-BOOL ProtectProcess() // by _FIL73R_
+BOOL ProtectProcess() 
 {
    HANDLE hDLL;
    RtlSetProcessIsCritical fSetCritical;
